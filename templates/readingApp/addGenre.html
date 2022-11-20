@@ -1,0 +1,23 @@
+{% extends 'readingApp/base.html' %}
+
+{% block body_block %}
+    <div class="jumbotron">
+        <h1>Add a Genre:</h1>
+        <hr class="my-2">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="{{ form.name.id_for_label }}">Name:</label>
+                {{ form.genre }}
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script>
+        var genre = document.getElementById("addGenre");
+        genre.classList.add("navbar-brand", "active");
+    </script>
+{% endblock %}

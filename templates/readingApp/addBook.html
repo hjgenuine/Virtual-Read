@@ -1,0 +1,39 @@
+{% extends 'readingApp/base.html' %}
+
+{% block body_block %}
+    <div class="jumbotron">
+        <h1>Add a Book:</h1>
+        <hr class="my-2">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="{{ form.name.id_for_label }}">Name:</label>
+                {{ form.name }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.summary.id_for_label }}">Summary:</label>
+                {{ form.summary }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.genre.id_for_label }}">Genre:</label>
+                {{ form.genre }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.thumbnail.id_for_label }}">Thumbnail:</label>
+                {{ form.thumbnail }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.pdf_file.id_for_label }}">PDF File:</label>
+                {{ form.pdf_file }}
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script>
+        var book = document.getElementById("addBook");
+        book.classList.add("navbar-brand", "active");
+    </script>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'readingApp/base.html' %}
+
+{% block css %}
+    <style>
+        .bookImage{
+            margin: auto;
+            border-radius: 5px;
+            height: 230px;
+            width: 100%;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .card{
+            background-color: #1a1927;
+            color: white;
+        }
+
+        .row{
+            position: relative;
+        }
+    </style>
+{% endblock %}
+
+{% block body_block %}
+    <div class="jumbotron">
+        <h1>{{ genre.genre }}</h1>
+        <hr class="my-2">
+            <div class="row">
+            {% for book in genre.books.all %}
+                <div class="col-md-4 col-10 my-2 d-flex align-items-stretch">
+                    <div class="card">
+                        <img class="bookImage" style="background-image: url('{{ book.thumbnail.url }}');">
+                        <div class="card-body">
+                        <h5 class="card-title">{{ book.name }}</h5>
+                        <p class="card-text">{{ book.summary }}</p>
+                        <a href="{% url 'book' pk=book.name %}" class="btn btn-primary">Read</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script>
+        var home = document.getElementById("home");
+        home.classList.add("navbar-brand", "active");
+    </script>
+{% endblock %}
