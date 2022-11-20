@@ -1,11 +1,3 @@
 Preview: https://hjgenuine.pythonanywhere.com/
 
-# Features
-* Read any Book
-* Add a new Genre
-* Add a new Book
-
-# Technology used
-* Python
-* Django
-* Pillow
+Features: Read any Book, create a new Genre, add a new Book
